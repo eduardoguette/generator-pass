@@ -7,6 +7,10 @@ const Home = () => {
   const [lSpanish, setLSpanish] = useState(false);
   const [lEnglish, setLEnglish] = useState(false);
 
+  /* darkmode */
+
+  const [darkMode, setDarkMode] = useState(false);
+
   const BtnLang = (e) => {
     e.preventDefault();
     if (e.target.classList.contains("btn-eng")) {
@@ -45,7 +49,11 @@ const Home = () => {
   };
   return (
     <Fragment>
-      {!lSpanish && !lEnglish ? void 0 : <Header />}
+      {!lSpanish && !lEnglish ? (
+        void 0
+      ) : (
+        <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+      )}
       {Banner()}
       {!lSpanish && !lEnglish ? (
         void 0
@@ -55,7 +63,18 @@ const Home = () => {
         <h1 className="body__title">Generate a secure password</h1>
       )}
       <Form lSpanish={lSpanish} lEnglish={lEnglish} />
-      {!lSpanish && !lEnglish ? void 0 : <Footer />}
+      {!lSpanish && !lEnglish ? (
+        void 0
+      ) : (
+        <Footer
+          lSpanish={lSpanish}
+          setLSpanish={setLSpanish}
+          lEnglish={lEnglish}
+          setLEnglish={setLEnglish}
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+        />
+      )}
     </Fragment>
   );
 };

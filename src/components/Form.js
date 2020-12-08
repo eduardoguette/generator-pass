@@ -89,7 +89,7 @@ const Form = ({ lSpanish, lEnglish }) => {
   const BannerCopy = () => {
     return (
       <div className="banner-copy">
-        <span>Copied</span>
+        {lSpanish ? <span>Copiado!</span> : <span>Copied!</span>}
       </div>
     );
   };
@@ -113,7 +113,7 @@ const Form = ({ lSpanish, lEnglish }) => {
           <div className="options">
             <div className="container-options">
               <div className="grid-option">
-                <p className="option-name">Número</p>
+                <p className="option-name">Números</p>
                 <div className="btn-option">
                   <input type="checkbox" id="option" onChange={handleNumber} />
                   <label htmlFor="option"></label>
@@ -148,7 +148,7 @@ const Form = ({ lSpanish, lEnglish }) => {
             </div>
             <div className="container-options">
               <div className="grid-option">
-                <p className="option-name">Longitud</p>
+                <p className="option-name">Longitud de la contraseña</p>
                 <div className="btn-option">
                   <input
                     type="text"
@@ -195,7 +195,7 @@ const Form = ({ lSpanish, lEnglish }) => {
           <div className="options">
             <div className="container-options">
               <div className="grid-option">
-                <p className="option-name">Number</p>
+                <p className="option-name">Numbers</p>
                 <div className="btn-option">
                   <input type="checkbox" id="option" onChange={handleNumber} />
                   <label htmlFor="option"></label>
@@ -204,7 +204,7 @@ const Form = ({ lSpanish, lEnglish }) => {
             </div>
             <div className="container-options">
               <div className="grid-option">
-                <p className="option-name">Letras</p>
+                <p className="option-name">Letters</p>
                 <div className="btn-option">
                   <input
                     type="checkbox"
@@ -217,7 +217,7 @@ const Form = ({ lSpanish, lEnglish }) => {
             </div>
             <div className="container-options">
               <div className="grid-option">
-                <p className="option-name">Simbol</p>
+                <p className="option-name">Simbols</p>
                 <div className="btn-option">
                   <input
                     type="checkbox"
@@ -230,7 +230,7 @@ const Form = ({ lSpanish, lEnglish }) => {
             </div>
             <div className="container-options">
               <div className="grid-option">
-                <p className="option-name">Length</p>
+                <p className="option-name">Password Length</p>
                 <div className="btn-option">
                   <input
                     type="text"

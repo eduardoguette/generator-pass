@@ -1,9 +1,10 @@
 import logoHome from "../img/logo.png";
-const Header = () => {
+const Header = ({ setDarkMode, darkMode }) => {
   const handleDarkMode = (e) => {
     e.target.parentNode.parentNode.parentNode.parentNode.classList.toggle(
       "active"
     );
+    darkMode ? setDarkMode(false) : setDarkMode(true);
   };
   return (
     <header className="header">
