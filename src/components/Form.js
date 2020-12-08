@@ -5,17 +5,21 @@ import { copyClipboard } from "../services/CopyClipboard";
 const { default: ButtonsInput } = require("./ButtonsInput");
 
 const DivContainerOption = styled.div`
-  input#pass {
-    position: relative;
-    border-bottom: 2px solid
-      ${(props) =>
-        props.lengthPass > 12 && !props.copied
-          ? "#34E749"
-          : props.lengthPass >= 8 && !props.copied
-          ? "#FEA81C"
-          : props.lengthPass < 8 && !props.copied
-          ? "#FE4C1C"
-          : "transparent"};
+  .container-input {
+    .input-pass {
+      input#pass {
+        position: relative;
+        border-bottom: 2px solid
+          ${(props) =>
+            props.lengthPass > 12 && !props.copied
+              ? "#34E749"
+              : props.lengthPass >= 8 && !props.copied
+              ? "#FEA81C"
+              : props.lengthPass < 8 && !props.copied
+              ? "#FE4C1C"
+              : "transparent"};
+      }
+    }
   }
 `;
 const Form = () => {
@@ -86,7 +90,7 @@ const Form = () => {
           />
           <ButtonsInput setNewPass={setNewPass} setCopy={setCopy} />
         </div>
-        {copy &&  BannerCopy()}
+        {copy && BannerCopy()}
       </div>
       <div className="options">
         <div className="container-options">
