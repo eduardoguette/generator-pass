@@ -1,4 +1,49 @@
 .header {
+  .banner-msg {
+    position: relative;
+    .msg {
+      display: flex;
+      justify-content: center;
+      align-content: center;/* 
+      animation: moveLang 2s linear .1s ; */
+     /*  , MoveX 1s infinite; */
+      position: relative;
+      background: black;
+      border-radius: 0.3em;
+      color: white;
+      padding: 0.3em 0.5em;
+      top: -1.8em;
+      left: 7em;
+      z-index: 1;
+      font-size: 0.8em;
+      opacity: 0;
+      &::after {
+        bottom: 1em;
+        transform: rotate(45deg);
+        left: -0.2em;
+        position: absolute;
+        content: "";
+        height: 0.5em;
+        color: white;
+        width: 0.5em;
+        background: black;
+      }
+    }
+    @keyframes moveLang {
+      0% {
+        transform: rotate(5deg);
+      }
+      50% {
+        transform: rotate(-5deg);
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(5deg);
+        opacity: 0;
+      }
+    }
+  
+  }
   height: 5em;
   display: flex;
   justify-content: space-between;
@@ -40,12 +85,12 @@
   input:checked ~ label::after {
     transform: translateX(2.1em);
     transition: all 0.2s linear;
-    background: url("../img/mon.png") center center no-repeat, #D1D8E0;
+    background: url("../img/mon.png") center center no-repeat, #d1d8e0;
     background-size: 1.8em;
     border: 1px solid rgba(255, 255, 255, 0.6);
   }
   input:checked ~ label {
-    background: url("../img/night.png") center center no-repeat, #363C4A;
+    background: url("../img/night.png") center center no-repeat, #363c4a;
     background-size: 4em;
     border: 1px solid rgba(255, 255, 255, 0.6);
   }

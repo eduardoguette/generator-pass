@@ -14,6 +14,81 @@
   width: 100%;
 }
 
+.header .banner-msg {
+  position: relative;
+}
+
+.header .banner-msg .msg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  /* 
+      animation: moveLang 2s linear .1s ; */
+  /*  , MoveX 1s infinite; */
+  position: relative;
+  background: black;
+  border-radius: 0.3em;
+  color: white;
+  padding: 0.3em 0.5em;
+  top: -1.8em;
+  left: 7em;
+  z-index: 1;
+  font-size: 0.8em;
+  opacity: 0;
+}
+
+.header .banner-msg .msg::after {
+  bottom: 1em;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  left: -0.2em;
+  position: absolute;
+  content: "";
+  height: 0.5em;
+  color: white;
+  width: 0.5em;
+  background: black;
+}
+
+@-webkit-keyframes moveLang {
+  0% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  50% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+    opacity: 0;
+  }
+}
+
+@keyframes moveLang {
+  0% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  50% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+    opacity: 0;
+  }
+}
+
 .header input {
   display: none;
 }
@@ -56,15 +131,21 @@
           transform: translateX(2.1em);
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
-  background: url("../img/mon.png") center center no-repeat, #D1D8E0;
+  background: url("../img/mon.png") center center no-repeat, #d1d8e0;
   background-size: 1.8em;
   border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .header input:checked ~ label {
-  background: url("../img/night.png") center center no-repeat, #363C4A;
+  background: url("../img/night.png") center center no-repeat, #363c4a;
   background-size: 4em;
   border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.language {
+  position: absolute;
+  top: 4em;
+  left: 1.2em;
 }
 
 .config {
@@ -383,6 +464,63 @@
   } */
 }
 
+.container-banner-lang {
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  place-content: center;
+}
+
+.container-banner-lang .window {
+  background: white;
+  padding: 3em 4em;
+  border-radius: 0.5em;
+  -webkit-box-shadow: 0 0 40px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 40px 3px rgba(0, 0, 0, 0.3);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  z-index: 2;
+  font-size: .8em;
+}
+
+.container-banner-lang .window .container-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 0.5em;
+          column-gap: 0.5em;
+}
+
+.container-banner-lang .window button {
+  cursor: pointer;
+  margin-top: 1em;
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  font-size: 0.7em;
+  font-weight: 600;
+  font-family: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(248, 248, 248, 0.24);
+}
+
+.container-banner-lang .window button:focus {
+  outline: none;
+  border: 1px solid transparent;
+  -webkit-box-shadow: 0 0 0 3px rgba(173, 216, 230, 0.315);
+          box-shadow: 0 0 0 3px rgba(173, 216, 230, 0.315);
+}
+
 :root {
   font-size: 16px;
 }
@@ -398,8 +536,8 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   margin: auto;
-  -webkit-transition: background 0.2s linear;
-  transition: background 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
   background: rgba(241, 241, 241, 0.7);
   color: #0a0a0a;
   min-height: 100vh;
@@ -421,6 +559,11 @@ body h1.body__title {
   body h1.body__title {
     font-size: 50px;
   }
+}
+
+body.noscroll {
+  overflow: hidden;
+  max-height: 100vh;
 }
 
 body.active {

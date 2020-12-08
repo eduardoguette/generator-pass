@@ -1,6 +1,10 @@
 $BoderInput: rgb(216, 216, 216);
 $BoderInputActive: rgba(144, 144, 144, 0.26);
-
+.language{
+  position: absolute;
+  top: 4em;
+  left: 1.2em;
+}
 .config {
   position: relative;
   display: block;

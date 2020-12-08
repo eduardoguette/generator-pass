@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import styled from "styled-components";
 import { getPass } from "../services/GeneratorPassword";
 import { copyClipboard } from "../services/CopyClipboard";
@@ -22,7 +22,7 @@ const DivContainerOption = styled.div`
     }
   }
 `;
-const Form = () => {
+const Form = ({ lSpanish, lEnglish }) => {
   /* Password */
   const [pass, setPass] = useState("");
   const [newPass, setNewPass] = useState(true);
@@ -36,6 +36,7 @@ const Form = () => {
   const [characterSpecial, setCharacterSpecial] = useState(true);
   /* passLength */
   const [lengthPass, setLengthPass] = useState("12");
+
   useEffect(() => {
     if (newPass) {
       setPass(getPass(lengthPass, number, character, characterSpecial));
@@ -46,7 +47,22 @@ const Form = () => {
         setCopy(false);
       }, 1000);
     }
-  }, [newPass, copy, lengthPass, number, character, characterSpecial]);
+
+    if (!lSpanish && !lEnglish) {
+      document.body.classList.add("noscroll");
+    } else {
+      document.body.classList.remove("noscroll");
+    }
+  }, [
+    lSpanish,
+    lEnglish,
+    newPass,
+    copy,
+    lengthPass,
+    number,
+    character,
+    characterSpecial,
+  ]);
   const handleInputText = (e) => {
     setPass(e.target.value);
   };
@@ -78,78 +94,174 @@ const Form = () => {
     );
   };
 
-  return (
-    <DivContainerOption className="config" lengthPass={lengthPass}>
-      <div className="container-input">
-        <div className="input-pass">
-          <input
-            type="text"
-            id="pass"
-            onChange={handleInputText}
-            value={pass}
-          />
-          <ButtonsInput setNewPass={setNewPass} setCopy={setCopy} />
-        </div>
-        {copy && BannerCopy()}
-      </div>
-      <div className="options">
-        <div className="container-options">
-          <div className="grid-option">
-            <p className="option-name">Número</p>
-            <div className="btn-option">
-              <input type="checkbox" id="option" onChange={handleNumber} />
-              <label htmlFor="option"></label>
-            </div>
-          </div>
-        </div>
-        <div className="container-options">
-          <div className="grid-option">
-            <p className="option-name">Letras</p>
-            <div className="btn-option">
-              <input type="checkbox" id="optionB" onChange={handleCharacter} />
-              <label htmlFor="optionB"></label>
-            </div>
-          </div>
-        </div>
-        <div className="container-options">
-          <div className="grid-option">
-            <p className="option-name">Símbolos</p>
-            <div className="btn-option">
-              <input type="checkbox" id="optionC" onChange={handleCSpecial} />
-              <label htmlFor="optionC"></label>
-            </div>
-          </div>
-        </div>
-        <div className="container-options">
-          <div className="grid-option">
-            <p className="option-name">Longitud</p>
-            <div className="btn-option">
+  const FormVersion = () => {
+    if (lSpanish) {
+      return (
+        <DivContainerOption className="config" lengthPass={lengthPass}>
+          <div className="container-input">
+            <div className="input-pass">
               <input
                 type="text"
-                className="length-pass"
+                id="pass"
+                onChange={handleInputText}
+                value={pass}
+              />
+              <ButtonsInput setNewPass={setNewPass} setCopy={setCopy} />
+            </div>
+            {copy && BannerCopy()}
+          </div>
+          <div className="options">
+            <div className="container-options">
+              <div className="grid-option">
+                <p className="option-name">Número</p>
+                <div className="btn-option">
+                  <input type="checkbox" id="option" onChange={handleNumber} />
+                  <label htmlFor="option"></label>
+                </div>
+              </div>
+            </div>
+            <div className="container-options">
+              <div className="grid-option">
+                <p className="option-name">Letras</p>
+                <div className="btn-option">
+                  <input
+                    type="checkbox"
+                    id="optionB"
+                    onChange={handleCharacter}
+                  />
+                  <label htmlFor="optionB"></label>
+                </div>
+              </div>
+            </div>
+            <div className="container-options">
+              <div className="grid-option">
+                <p className="option-name">Símbolos</p>
+                <div className="btn-option">
+                  <input
+                    type="checkbox"
+                    id="optionC"
+                    onChange={handleCSpecial}
+                  />
+                  <label htmlFor="optionC"></label>
+                </div>
+              </div>
+            </div>
+            <div className="container-options">
+              <div className="grid-option">
+                <p className="option-name">Longitud</p>
+                <div className="btn-option">
+                  <input
+                    type="text"
+                    className="length-pass"
+                    onChange={handleLength}
+                    value={lengthPass}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="range-option">
+              <input
+                type="range"
+                className="input-range"
                 onChange={handleLength}
                 value={lengthPass}
+                min="1"
+                max="50"
               />
             </div>
           </div>
-        </div>
-        <div className="range-option">
-          <input
-            type="range"
-            className="input-range"
-            onChange={handleLength}
-            value={lengthPass}
-            min="1"
-            max="50"
-          />
-        </div>
-      </div>
-      <div className="container-btn-copy">
-        <button className="btn-copy" onClick={() => setCopy(true)}>
-          Copiar contraseña
-        </button>
-      </div>
-    </DivContainerOption>
-  );
+          <div className="container-btn-copy">
+            <button className="btn-copy" onClick={() => setCopy(true)}>
+              Copiar contraseña
+            </button>
+          </div>
+        </DivContainerOption>
+      );
+    } else if (lEnglish) {
+      return (
+        <DivContainerOption className="config" lengthPass={lengthPass}>
+          <div className="container-input">
+            <div className="input-pass">
+              <input
+                type="text"
+                id="pass"
+                onChange={handleInputText}
+                value={pass}
+              />
+              <ButtonsInput setNewPass={setNewPass} setCopy={setCopy} />
+            </div>
+            {copy && BannerCopy()}
+          </div>
+          <div className="options">
+            <div className="container-options">
+              <div className="grid-option">
+                <p className="option-name">Number</p>
+                <div className="btn-option">
+                  <input type="checkbox" id="option" onChange={handleNumber} />
+                  <label htmlFor="option"></label>
+                </div>
+              </div>
+            </div>
+            <div className="container-options">
+              <div className="grid-option">
+                <p className="option-name">Letras</p>
+                <div className="btn-option">
+                  <input
+                    type="checkbox"
+                    id="optionB"
+                    onChange={handleCharacter}
+                  />
+                  <label htmlFor="optionB"></label>
+                </div>
+              </div>
+            </div>
+            <div className="container-options">
+              <div className="grid-option">
+                <p className="option-name">Simbol</p>
+                <div className="btn-option">
+                  <input
+                    type="checkbox"
+                    id="optionC"
+                    onChange={handleCSpecial}
+                  />
+                  <label htmlFor="optionC"></label>
+                </div>
+              </div>
+            </div>
+            <div className="container-options">
+              <div className="grid-option">
+                <p className="option-name">Length</p>
+                <div className="btn-option">
+                  <input
+                    type="text"
+                    className="length-pass"
+                    onChange={handleLength}
+                    value={lengthPass}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="range-option">
+              <input
+                type="range"
+                className="input-range"
+                onChange={handleLength}
+                value={lengthPass}
+                min="1"
+                max="50"
+              />
+            </div>
+          </div>
+          <div className="container-btn-copy">
+            <button className="btn-copy" onClick={() => setCopy(true)}>
+              Copy Password
+            </button>
+          </div>
+        </DivContainerOption>
+      );
+    }
+  };
+
+  return <Fragment>{FormVersion()}</Fragment>;
 };
 export default Form;
