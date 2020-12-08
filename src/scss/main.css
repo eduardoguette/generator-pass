@@ -62,7 +62,7 @@
 }
 
 .header input:checked ~ label {
-  background: url("../img/night.png") center center no-repeat;
+  background: url("../img/night.png") center center no-repeat, #363C4A;
   background-size: 4em;
   border: 1px solid rgba(255, 255, 255, 0.6);
 }
