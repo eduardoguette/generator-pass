@@ -17,6 +17,7 @@
   input:checked ~ label {
     background: url("../img/night.png") center center no-repeat;
     background-size: 4em;
+    border: 1px solid rgba(255, 255, 255, 0.6);
   }
   label {
     display: block;
