@@ -1,0 +1,432 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.header {
+  height: 5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.5em 1.2em;
+  width: 100%;
+}
+
+.header input {
+  display: none;
+}
+
+.header input:checked ~ label::after {
+  -webkit-transform: translateX(2.1em);
+          transform: translateX(2.1em);
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  background: url("../img/mon.png") center center no-repeat;
+  background-size: cover;
+}
+
+.header input:checked ~ label {
+  background: url("../img/night.png") center center no-repeat;
+  background-size: 4em;
+}
+
+.header label {
+  display: block;
+  position: relative;
+  width: 4em;
+  height: 2em;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background: white;
+  border-radius: 3em;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  background: url("../img/day.png") center center no-repeat;
+  background-size: 4em;
+  cursor: pointer;
+}
+
+.header label::after {
+  position: absolute;
+  content: "";
+  background: url("../img/sun.png") center center no-repeat;
+  background-size: cover;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 1.6em;
+  height: 1.6em;
+  top: 0;
+  border-radius: 2em;
+  bottom: 0;
+  margin: auto;
+  -webkit-transform: translateX(1px);
+          transform: translateX(1px);
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.config {
+  position: relative;
+  display: block;
+  font-size: 1em;
+  padding-top: 3em;
+  padding-bottom: 4em;
+  /* form */
+  /* btns mobile */
+  /* input range */
+  /* btn copy pass */
+}
+
+.config .container-input {
+  padding-bottom: 2em;
+  position: relative;
+  margin: auto;
+  max-width: 20em;
+  font-size: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /* modal copy  */
+  /* 
+    border: 1px solid rebeccapurple; */
+}
+
+.config .container-input .input-pass {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.config .container-input .input-pass input#pass {
+  width: 100%;
+  height: 3em;
+  padding: 0.4em 2em 0.4em 1em;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  -webkit-box-shadow: 0 0 0 0.05em #d8d8d8;
+          box-shadow: 0 0 0 0.05em #d8d8d8;
+  -webkit-transition: all linear 0.2s;
+  transition: all linear 0.2s;
+  font-size: 1em;
+  font-family: "Poppins", sans-serif;
+}
+
+.config .container-input .input-pass input#pass:focus {
+  -webkit-box-shadow: 0 0 0 0.2em rgba(144, 144, 144, 0.26);
+          box-shadow: 0 0 0 0.2em rgba(144, 144, 144, 0.26);
+}
+
+.config .container-input .banner-copy {
+  margin: auto;
+  position: absolute;
+  z-index: -1;
+  -webkit-animation: bannerCopy 0.5s linear;
+          animation: bannerCopy 0.5s linear;
+  padding: 0.2em 0;
+  text-align: center;
+  font-weight: 600;
+  color: #252525;
+  background: #baff75;
+  border-radius: 0 0 0.5em 0.5em;
+  top: 3em;
+  display: block;
+  width: 100%;
+}
+
+.config .container-input .banner-copy span {
+  font-size: 0.8em;
+}
+
+@-webkit-keyframes bannerCopy {
+  from {
+    opacity: 0;
+    top: 0em;
+  }
+  to {
+    opacity: 1;
+    top: 3em;
+  }
+}
+
+@keyframes bannerCopy {
+  from {
+    opacity: 0;
+    top: 0em;
+  }
+  to {
+    opacity: 1;
+    top: 3em;
+  }
+}
+
+@media screen and (min-width: 540px) {
+  .config .container-input {
+    font-size: 20px;
+    max-width: 22em;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .config .container-input {
+    font-size: 30px;
+    max-width: 25em;
+  }
+}
+
+.config .container-options {
+  max-width: 20em;
+  margin: auto;
+  position: relative;
+  -webkit-transition: 0.2s linear all;
+  transition: 0.2s linear all;
+  margin: 0.9em auto;
+}
+
+.config .container-options .grid-option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* p {
+        font-size: px;
+      } */
+}
+
+.config .container-options .grid-option label {
+  position: relative;
+  display: block;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  width: 3.1em;
+  height: 1.57em;
+  border-radius: 1em;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: 0.2s linear all;
+  transition: 0.2s linear all;
+  background-color: #82df78;
+}
+
+.config .container-options .grid-option label::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(144, 144, 144, 0.6);
+  height: 1.24em;
+  width: 1.24em;
+  border-radius: 1em;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-transform: translateX(1.6em);
+          transform: translateX(1.6em);
+  -webkit-transition: 0.2s linear all;
+  transition: 0.2s linear all;
+  background: white;
+  -webkit-box-shadow: -2px 0px 10px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: -2px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.config .container-options .grid-option input[type="checkbox"] {
+  display: none;
+}
+
+.config .container-options .grid-option input:checked ~ label::after {
+  -webkit-transform: translateX(0.05em);
+          transform: translateX(0.05em);
+  -webkit-box-shadow: 2px 0px 10px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.config .container-options .grid-option input:checked ~ label {
+  background: white;
+}
+
+.config .container-options .grid-option .length-pass {
+  width: 3.1em;
+  height: 1.65em;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  border-radius: 1em;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width: 540px) {
+  .config .container-options {
+    font-size: 20px;
+    max-width: 22em;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .config .container-options {
+    font-size: 25px;
+    max-width: 30em;
+  }
+}
+
+.config .range-option {
+  max-width: 19.5em;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.config .range-option .input-range {
+  font-size: 1em;
+  position: relative;
+  display: inline-block;
+  margin: auto;
+  margin-top: 1em;
+  width: 100%;
+  height: 3px;
+  -webkit-appearance: none;
+  border-radius: 50px;
+  outline: none;
+  background: #797979;
+}
+
+.config .range-option .input-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: #908dff;
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 540px) {
+  .config .range-option {
+    font-size: 20px;
+    max-width: 22em;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .config .range-option {
+    font-size: 25px;
+    max-width: 30em;
+  }
+}
+
+.config .container-btn-copy {
+  position: relative;
+  top: 4em;
+  height: 3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.config .container-btn-copy button {
+  margin: auto;
+  border: none;
+  outline: none;
+  padding: 0.8em 1.5em;
+  border-radius: 5em;
+  background: #908dff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.config .container-btn-copy button:focus {
+  -webkit-box-shadow: 0 0 0 0.2em rgba(78, 72, 255, 0.281);
+          box-shadow: 0 0 0 0.2em rgba(78, 72, 255, 0.281);
+}
+
+.creator {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 4em 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.6em;
+  font-family: "Poppins", sans-serif;
+  opacity: 0.3;
+  /*   @media screen and (min-width: 540px) {
+    font-size: 16px;
+  } */
+}
+
+:root {
+  font-size: 16px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  margin: auto;
+  -webkit-transition: background 0.2s linear;
+  transition: background 0.2s linear;
+  background: rgba(241, 241, 241, 0.7);
+  color: #0a0a0a;
+  min-height: 100vh;
+}
+
+body h1.body__title {
+  padding: 2em 0 0.5em 0;
+  text-align: center;
+  font-size: 2em;
+}
+
+@media screen and (min-width: 540px) {
+  body h1.body__title {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  body h1.body__title {
+    font-size: 50px;
+  }
+}
+
+body.active {
+  background: #111127;
+  color: white;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+/*# sourceMappingURL=main.css.map */
