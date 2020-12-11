@@ -49,32 +49,24 @@ const Home = () => {
   };
   return (
     <Fragment>
-      {!lSpanish && !lEnglish ? (
-        void 0
-      ) : (
-        <Header darkMode={darkMode} setDarkMode={setDarkMode} />
-      )}
+      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+
       {Banner()}
-      {!lSpanish && !lEnglish ? (
-        void 0
-      ) : lSpanish ? (
+      {lSpanish ? (
         <h1 className="body__title">Genera una contraseña segura</h1>
       ) : (
         <h1 className="body__title">Generate a secure password</h1>
       )}
       <Form lSpanish={lSpanish} lEnglish={lEnglish} />
-      {!lSpanish && !lEnglish ? (
-        void 0
-      ) : (
-        <Footer
-          lSpanish={lSpanish}
-          setLSpanish={setLSpanish}
-          lEnglish={lEnglish}
-          setLEnglish={setLEnglish}
-          darkMode={darkMode}
-          setDarkMode={setDarkMode}
-        />
-      )}
+
+      <Footer
+        lSpanish={lSpanish}
+        setLSpanish={setLSpanish}
+        lEnglish={lEnglish}
+        setLEnglish={setLEnglish}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
     </Fragment>
   );
 };

@@ -448,22 +448,24 @@
 }
 
 .footer {
-  position: static;
-  bottom: 0;
   width: 100%;
-  margin-top: 2em;
+  margin-top: 5em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 0.5em 1em;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  row-gap: 5em;
   font-size: 16px;
-  border-top: 1px solid rgba(46, 46, 46, 0.438);
 }
 
 .footer .list-lang {

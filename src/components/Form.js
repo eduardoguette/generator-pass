@@ -177,7 +177,7 @@ const Form = ({ lSpanish, lEnglish }) => {
           </div>
         </DivContainerOption>
       );
-    } else if (lEnglish) {
+    } else {
       return (
         <DivContainerOption className="config" lengthPass={lengthPass}>
           <div className="container-input">
